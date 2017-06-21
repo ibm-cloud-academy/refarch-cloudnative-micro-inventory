@@ -22,7 +22,7 @@ spec:
       - name: inventory-backup-container
         image: patrocinio/ibm-backup-restore
         command: ["/bin/bash"]
-        args: ["-c", "/backup_restore/vbackup"]
+        args: ["-c", "sleep 120;/backup_restore/vbackup"]
         env:
         - name: BACKUP_NAME
           value: patrocinio-inventory-mysql
