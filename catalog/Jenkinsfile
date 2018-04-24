@@ -1,5 +1,5 @@
 podTemplate(
-    label: 'dockerPod',
+    label: 'gradlePod',
     volumes: [
       hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
       secretVolume(secretName: 'icpadmin', mountPath: '/var/run/secrets/registry-account'),
@@ -12,7 +12,7 @@ podTemplate(
         containerTemplate(name: 'docker' , image: 'docker:17.06.1-ce', ttyEnabled: true, command: 'cat')
     ],
 ) {
-    node ('dockerPod') {
+    node ('gradlePod') {
         checkout scm
         container('gradle') {
             stage('Build Gradle Project') {
