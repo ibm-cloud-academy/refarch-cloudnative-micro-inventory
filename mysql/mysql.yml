@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mysql-lightblue-deployment
+  name: mysql-deployment
 spec:
   replicas: 1
   template:
@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: "registry.ng.bluemix.net/<namespace>/mysql"
+          image: "cloudcluster.icp:8500/default/mysql"
           imagePullPolicy: Always
           livenessProbe:
             tcpSocket:
@@ -32,7 +32,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-lightblue-service
+  name: mysql-service
   labels:
     app: mysql
 spec:

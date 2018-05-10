@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: inventory-lightblue-deployment
+  name: inventory-deployment
 spec:
   replicas: 1
   template:
@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: inventory-lightblue-service
+  name: inventory-service
   labels:
     app: inventory
 spec:
